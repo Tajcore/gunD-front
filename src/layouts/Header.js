@@ -1,23 +1,14 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
+
 // @material-ui/core components
 import { makeStyles } from "@mui/styles";
-
-import { AppBar, Toolbar, IconButton, Button } from "@mui/material";
-
-// @material-ui/icons
-import { Menu } from "@mui/icons-material/";
-
-// core components
+import { AppBar, Toolbar, Button } from "@mui/material";
+import { Box } from "@mui/system";
 
 // Logo
-
 import GunDLogo from "../assets/images/Logo.png";
-import { Box } from "@mui/system";
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme) => ({
   logo: {
     height: "41px",
   },
@@ -27,30 +18,44 @@ const useStyles = makeStyles({
   },
   navLinks: {
     textTransform: "none",
-    color: "#000000",
+    color: "#00000",
     fontWeight: 400,
   },
-  navBar: {
-    padding: "0px 7rem 0px 7rem",
-    marginTop: "2rem",
+  root: {
+    marginTop: theme.spacing(1),
+    padding: theme.spacing(6),
   },
-});
+}));
 
 const Header = (props) => {
   const classes = useStyles();
   return (
-    <AppBar style={{ boxShadow: "none" }} position="static" color="transparent">
-      <Toolbar className={classes.navBar}>
+    <AppBar
+      className={classes.root}
+      style={{ boxShadow: "none" }}
+      position="static"
+      color="transparent"
+    >
+      <Toolbar>
         <Box className={classes.box} component="div" sx={{ flexGrow: 1 }}>
           <img className={classes.logo} alt="Logo" src={GunDLogo} />
         </Box>
-        <Button className={classes.navLinks} variant="text">
+        <Button
+          style={{ textTransform: "none", color: "#00000", fontWeight: 400 }}
+          variant="text"
+        >
           Home
         </Button>
-        <Button className={classes.navLinks} variant="text">
+        <Button
+          style={{ textTransform: "none", color: "#00000", fontWeight: 400 }}
+          variant="text"
+        >
           Our Team
         </Button>
-        <Button className={classes.navLinks} variant="text">
+        <Button
+          style={{ textTransform: "none", color: "#00000", fontWeight: 400 }}
+          variant="text"
+        >
           Github
         </Button>
         <Button
